@@ -72,10 +72,7 @@ const LoginPage = () => {
             <Separator className="flex-1 bg-white/10" />
           </div>
 
-          <Button
-            type="button"
-            className="w-full rounded-lg bg-white text-neutral-900 border border-transparent font-medium py-2.5 transition-colors hover:bg-slate-100 flex items-center justify-center gap-2 shadow-sm"
-          >
+          <Button className="w-full rounded-lg bg-white text-neutral-900 border border-transparent font-medium py-2.5 transition-colors hover:bg-slate-100 flex items-center justify-center gap-2 shadow-sm">
             <FcGoogle className="text-xl" />
             Continue with Google
           </Button>
