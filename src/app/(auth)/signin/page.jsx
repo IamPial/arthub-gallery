@@ -19,7 +19,6 @@ const LoginPage = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
-    console.log(user);
   };
 
   const inputStyle = `rounded-lg bg-[#131129] border border-white/10 text-white w-full shadow-none mt-1 focus:border-[#6f4ff2] focus:ring-0 focus:outline-none transition-colors autofill:shadow-[0_0_0_30px_#131129_inset] autofill:text-white [-webkit-text-fill-color:white]`;
@@ -39,11 +38,9 @@ const LoginPage = () => {
             className="mx-auto my-2 border border-white/10 bg-[#131129] rounded-lg p-1.5"
           />
           <h2 className="text-2xl font-bold tracking-tight mt-3">
-            Login to StudyNook
+            Login to ArtHub
           </h2>
-          <p className="text-purple-300 mt-1 text-sm">
-            Welcome back. Pick up where you left off.
-          </p>
+          <p className="text-purple-300 mt-1 text-sm">Welcome back</p>
         </header>
 
         {/* Email Input */}
