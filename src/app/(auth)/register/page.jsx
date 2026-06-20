@@ -159,7 +159,7 @@ const SignUpPage = () => {
           <Label className="text-slate-200 text-sm font-medium">Password</Label>
           <Input className={inputStyle} placeholder="Create a password" />
           <Description className="text-xs text-slate-400 mt-1">
-            Min 6 characters with 1 uppercase & 1 lowercase letter.
+            At least 6 characters with 1 uppercase & 1 lowercase letter.
           </Description>
           <FieldError className="text-xs text-red-400 mt-1" />
         </TextField>
@@ -169,7 +169,7 @@ const SignUpPage = () => {
           <Label className="text-slate-200 text-sm font-medium">
             Confirm Password
           </Label>
-          <Input className={inputStyle} placeholder="Repeat your password" />
+          <Input className={inputStyle} placeholder="confirm password" />
           <FieldError className="text-xs text-red-400 mt-1" />
         </TextField>
 
