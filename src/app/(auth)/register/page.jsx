@@ -40,10 +40,7 @@ const SignUpPage = () => {
     }
   };
 
-  const inputStyle =
-    "rounded-lg bg-[#131129] border border-white/10 text-white w-full shadow-none mt-1 " +
-    "focus:border-[#6f4ff2] focus:ring-0 focus:outline-none transition-colors " +
-    "autofill:shadow-[0_0_0_30px_#131129_inset] autofill:text-white [-webkit-text-fill-color:white]";
+  const inputStyle = `rounded-lg bg-[#131129] border border-white/10 text-white w-full shadow-none mt-1 focus:border-[#6f4ff2] focus:ring-0 focus:outline-none transition-colors autofill:shadow-[0_0_0_30px_#131129_inset] autofill:text-white [-webkit-text-fill-color:white]`;
 
   return (
     <div className="py-10 px-4 md:px-0 text-white min-h-screen flex items-center justify-center">
