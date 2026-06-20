@@ -12,6 +12,12 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
+  socialProviders: {
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    },
+  },
   user: {
     additionalFields: {
       role: {
@@ -19,6 +25,23 @@ export const auth = betterAuth({
       },
       plan: {
         default: "free",
+      },
+    },
+  },
+
+  //use databaseHooks for passing role & plan with google login
+  databaseHooks: {
+    user: {
+      create: {
+        before: async (userData) => {
+          return {
+            data: {
+              ...userData,
+              role: userData.role || "buyer",
+              plan: userData.plan || "free",
+            },
+          };
+        },
       },
     },
   },
