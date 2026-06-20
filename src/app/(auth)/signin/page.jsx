@@ -40,6 +40,17 @@ const LoginPage = () => {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+    toast("Signed in with google", {
+      style: {
+        color: "#00c950",
+      },
+    });
+  };
+
   const inputStyle = `rounded-lg bg-[#131129] border border-white/10 text-white w-full shadow-none mt-1 focus:border-[#6f4ff2] focus:ring-0 focus:outline-none transition-colors autofill:shadow-[0_0_0_30px_#131129_inset] autofill:text-white [-webkit-text-fill-color:white]`;
 
   return (
@@ -102,7 +113,10 @@ const LoginPage = () => {
               <Separator className="flex-1 bg-white/10" />
             </div>
 
-            <Button className="w-full rounded-lg bg-white text-neutral-900 border border-transparent font-medium py-2.5 transition-colors hover:bg-slate-100 flex items-center justify-center gap-2 shadow-sm">
+            <Button
+              onClick={handleGoogleSignIn}
+              className="w-full rounded-lg bg-white text-neutral-900 border border-transparent font-medium py-2.5 transition-colors hover:bg-slate-100 flex items-center justify-center gap-2 shadow-sm"
+            >
               <FcGoogle className="text-xl" />
               Continue with Google
             </Button>
