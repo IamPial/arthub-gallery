@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   Button,
   Description,
@@ -17,9 +16,9 @@ import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 import ArtImg from "@/assets/art.png";
 import Image from "next/image";
-import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { authClient } from "@/lib/auth-client";
 
 const SignUpPage = () => {
   const router = useRouter();
@@ -37,6 +36,21 @@ const SignUpPage = () => {
     if (!user.role) {
       toast.error("Please select a role before registering.");
       return;
+    }
+
+    const { data, error } = await authClient.signUp.email({
+      ...user,
+      plan: "free",
+    });
+
+    if (data) {
+      toast("Registration successful!", {
+        style: {
+          color: "#00c950",
+        },
+      });
+      router.push("/signin");
+      router.refresh();
     }
   };
 
@@ -105,11 +119,11 @@ const SignUpPage = () => {
             <Select.Popover className="bg-[#1c1a36] border border-white/10 rounded-lg shadow-xl mt-1 overflow-hidden z-50">
               <ListBox className="p-1 text-white">
                 <ListBox.Item
-                  id="user"
-                  textValue="User (Buyer)"
+                  id="buyer"
+                  textValue="Buyer"
                   className="p-2 text-sm rounded-md cursor-pointer text-white data-[focused=true]:bg-[#6f4ff2] data-[selected=true]:bg-[#6f4ff2] data-[focused=true]:text-white outline-none flex items-center justify-between transition-colors"
                 >
-                  <span className="text-white">User (Buyer)</span>
+                  <span className="text-white">Buyer</span>
                   <ListBox.ItemIndicator className="text-white text-xs" />
                 </ListBox.Item>
 
