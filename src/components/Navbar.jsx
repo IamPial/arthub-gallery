@@ -6,18 +6,29 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/assets/logo.png";
 import NavLink from "./NavLink";
-import { authClient } from "@/lib/auth-client";
+
 import { IoIosLogOut } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
-  const { data: session, error } = authClient.useSession();
+  const { data: session } = authClient.useSession();
 
   const user = session?.user;
 
+  const handleSignOut = async () => {
+    await authClient.signOut();
+    toast("Logout successful!", {
+      style: {
+        color: "#00c950",
+      },
+    });
+    router.push("/signin");
+    router.refresh();
+  };
   return (
     <div className="sticky top-0 z-40 border-b border-white/10 bg-[#131129]/60 backdrop-blur-xl text-white">
       <nav className="container mx-auto px-4 md:px-0 relative">
@@ -82,7 +93,7 @@ const Navbar = () => {
               <Dropdown>
                 <Button
                   aria-label="Menu"
-                  className="py-6 bg-[#131129]/80 backdrop-blur-lg border border-white/10 text-white"
+                  className="py-6 bg-[#131129]/80 backdrop-blur-lg text-white"
                   variant="secondary"
                 >
                   <Avatar>
@@ -93,7 +104,9 @@ const Navbar = () => {
                     />
                     <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
                   </Avatar>{" "}
-                  <span className="text-white">{user?.name}</span>
+                  <span className="text-white">
+                    Hi, {user?.name.split(" ")[0]} !
+                  </span>
                 </Button>
 
                 <Dropdown.Popover>
@@ -122,7 +135,10 @@ const Navbar = () => {
                     </Dropdown.Item>
 
                     <Dropdown.Item className="hover:bg-white/5 p-1">
-                      <Button className="w-full bg-[#6f4ff2] hover:bg-[#5b3ed4] text-white font-semibold transition-colors">
+                      <Button
+                        onClick={handleSignOut}
+                        className="w-full bg-[#6f4ff2] hover:bg-[#5b3ed4] text-white font-semibold transition-colors"
+                      >
                         <IoIosLogOut /> Log Out
                       </Button>
                     </Dropdown.Item>
