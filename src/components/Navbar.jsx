@@ -126,7 +126,7 @@ const Navbar = () => {
                     </Dropdown.Item>
                     <Dropdown.Item className="hover:bg-white/5">
                       <NavLink
-                        href="/dashboard"
+                        href={`/dashboard/${user?.role}`}
                         className="font-medium"
                         aria-current="page"
                       >
