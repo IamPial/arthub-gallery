@@ -77,6 +77,7 @@ const dashboardItems = {
 const DashBoardSideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
   const { data: session } = authClient.useSession();
   const user = session?.user;
   const role = user?.role;
@@ -142,10 +143,7 @@ const DashBoardSideBar = () => {
         </div>
 
         <div className="flex flex-col gap-2 mt-auto pt-6">
-          <Button
-            variant="light"
-            className="text-danger flex items-center justify-start gap-4 px-4 py-3.5 rounded-xl font-medium w-full hover:bg-red-500/10"
-          >
+          <Button className="bg-red-500/80  text-white flex items-center justify-start gap-4 px-4 py-3.5 rounded-xl font-medium w-full hover:bg-red-500/10 hover:text-danger">
             <FiLogOut className="text-lg" />
             Logout
           </Button>
@@ -153,7 +151,7 @@ const DashBoardSideBar = () => {
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-4 px-4 py-3.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl font-medium text-sm transition-all"
+            className="flex border border-white/50 items-center gap-4 px-4 py-3.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl font-medium text-sm transition-all"
           >
             <FiHome className="text-lg" />
             <span>Back to Home</span>
