@@ -36,6 +36,7 @@ const ArtistProfilePage = () => {
       return;
     }
 
+    //create empty object for updating data
     const updateData = {};
 
     if (userData.name && userData.name !== user?.name) {
