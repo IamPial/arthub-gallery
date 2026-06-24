@@ -6,3 +6,11 @@ body {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.table__cell {
+  background-color: rgba(111, 79, 242, 0.05) !important;
+  border-color: #131129;
+}
+.table__cell:last-child {
+  border: 0;
+}
