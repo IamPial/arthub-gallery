@@ -34,11 +34,7 @@ const dashboardItems = {
   ],
   artist: [
     { name: "Manage Artworks", icon: <FiList />, href: "/dashboard/artist" },
-    {
-      name: "Add Artwork",
-      icon: <FiPlusCircle />,
-      href: "/dashboard/artist/add",
-    },
+
     {
       name: "Sales History",
       icon: <FiShoppingBag />,
