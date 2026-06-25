@@ -1,8 +1,14 @@
 "use client";
 
+import { deleteArtWorks } from "@/lib/actions/artworks";
 import { AlertDialog, Button } from "@heroui/react";
 import { FiTrash2 } from "react-icons/fi";
-const DeleteArtworksModal = () => {
+import { toast } from "sonner";
+const DeleteArtworksModal = ({ artWork }) => {
+  const handleDelete = async () => {
+    await deleteArtWorks(artWork?._id);
+    toast.success("Artworks deleted successfully!");
+  };
   return (
     <AlertDialog>
       <Button
@@ -18,12 +24,12 @@ const DeleteArtworksModal = () => {
             <AlertDialog.Header>
               <AlertDialog.Icon status="danger" />
               <AlertDialog.Heading>
-                Delete project permanently?
+                Delete artworks permanently?
               </AlertDialog.Heading>
             </AlertDialog.Header>
             <AlertDialog.Body>
               <p>
-                This will permanently delete <strong>My Awesome Project</strong>{" "}
+                This will permanently delete <strong>{artWork?.title}</strong>{" "}
                 and all of its data. This action cannot be undone.
               </p>
             </AlertDialog.Body>
@@ -31,8 +37,8 @@ const DeleteArtworksModal = () => {
               <Button slot="close" variant="tertiary">
                 Cancel
               </Button>
-              <Button slot="close" variant="danger">
-                Delete Project
+              <Button onClick={handleDelete} slot="close" variant="danger">
+                Remove Artworks
               </Button>
             </AlertDialog.Footer>
           </AlertDialog.Dialog>
