@@ -15,6 +15,7 @@ import { FiPlus } from "react-icons/fi";
 import { addArtWorks } from "@/lib/actions/artworks";
 import { authClient } from "@/lib/auth-client";
 import { imgUpload } from "@/lib/imgUpload";
+import { toast } from "sonner";
 
 export default function AddArtworksModal() {
   const { data } = authClient.useSession();
@@ -32,6 +33,11 @@ export default function AddArtworksModal() {
       userId: user?.id,
       userName: user?.name,
       createdAt: new Date(),
+    });
+    toast("Artworks created successfully!", {
+      style: {
+        color: "#00c950",
+      },
     });
   };
 
@@ -84,7 +90,7 @@ export default function AddArtworksModal() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Select
                     name="category"
-                    defaultValue="digital-art"
+                    defaultValue="painting"
                     className="flex flex-col gap-1.5"
                   >
                     <Label className={labelClass}>Category</Label>
@@ -95,28 +101,28 @@ export default function AddArtworksModal() {
                     <Select.Popover className="bg-[#1a163a] border border-white/10 rounded-xl shadow-xl">
                       <ListBox className="p-1">
                         <ListBox.Item
-                          id="digital-art"
+                          id="painting"
                           className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
                         >
-                          Digital Art
+                          Painting
                         </ListBox.Item>
                         <ListBox.Item
-                          id="3d-motion"
+                          id="digital"
                           className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
                         >
-                          3D Motion
+                          Digital
+                        </ListBox.Item>
+                        <ListBox.Item
+                          id="sculpture"
+                          className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
+                        >
+                          Sculpture
                         </ListBox.Item>
                         <ListBox.Item
                           id="abstract"
                           className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
                         >
-                          Abstract Blueprint
-                        </ListBox.Item>
-                        <ListBox.Item
-                          id="vector"
-                          className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
-                        >
-                          Vector Illustration
+                          Abstract
                         </ListBox.Item>
                       </ListBox>
                     </Select.Popover>
@@ -167,7 +173,6 @@ export default function AddArtworksModal() {
                     Cancel
                   </Button>
                   <Button
-                    slot="close"
                     type="submit"
                     className="bg-[#6f4ff2] hover:bg-[#5b3ed4] text-white font-semibold rounded-xl px-5 py-5 shadow-md shadow-[#6f4ff2]/10 transition-colors"
                   >
