@@ -15,6 +15,7 @@ import { FiEdit2 } from "react-icons/fi";
 
 import { imgUpload } from "@/lib/imgUpload";
 import Image from "next/image";
+import { updateArtWorks } from "@/lib/actions/artworks";
 
 export default function EditArtworksModal({ artWork }) {
   console.log(artWork);
@@ -31,12 +32,11 @@ export default function EditArtworksModal({ artWork }) {
       imageUrl = uploadRes?.url;
     }
 
-    // await updateArtwork({
-    //   id: artwork?.id,
-    //   ...addData,
-    //   image: imageUrl,
-    //   updatedAt: new Date(),
-    // });
+    await updateArtWorks(artWork?._id, {
+      ...addData,
+      image: imageUrl,
+      updatedAt: new Date(),
+    });
   };
 
   const inputClass =
@@ -90,7 +90,7 @@ export default function EditArtworksModal({ artWork }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Select
                     name="category"
-                    defaultValue={artWork?.category || "digital-art"}
+                    defaultValue={artWork?.category || "painting"}
                     className="flex flex-col gap-1.5"
                   >
                     <Label className={labelClass}>Category</Label>
@@ -101,28 +101,28 @@ export default function EditArtworksModal({ artWork }) {
                     <Select.Popover className="bg-[#1a163a] border border-white/10 rounded-xl shadow-xl">
                       <ListBox className="p-1">
                         <ListBox.Item
-                          id="digital-art"
+                          id="painting"
                           className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
                         >
-                          Digital Art
+                          Painting
                         </ListBox.Item>
                         <ListBox.Item
-                          id="3d-motion"
+                          id="digital"
                           className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
                         >
-                          3D Motion
+                          Digital
+                        </ListBox.Item>
+                        <ListBox.Item
+                          id="sculpture"
+                          className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
+                        >
+                          Sculpture
                         </ListBox.Item>
                         <ListBox.Item
                           id="abstract"
                           className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
                         >
-                          Abstract Blueprint
-                        </ListBox.Item>
-                        <ListBox.Item
-                          id="vector"
-                          className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
-                        >
-                          Vector Illustration
+                          Abstract
                         </ListBox.Item>
                       </ListBox>
                     </Select.Popover>
