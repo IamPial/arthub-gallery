@@ -15,8 +15,9 @@ import {
 } from "react-icons/fi";
 import { Button } from "@heroui/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
 
 const dashboardItems = {
   buyer: [
@@ -72,12 +73,24 @@ const dashboardItems = {
 
 const DashBoardSideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   const pathname = usePathname();
 
   const { data: session } = authClient.useSession();
   const user = session?.user;
   const role = user?.role;
   const navItems = dashboardItems[role] || dashboardItems["buyer"];
+
+  const handleSignOut = async () => {
+    await authClient.signOut();
+    toast("Logout successful!", {
+      style: {
+        color: "#f10808",
+      },
+    });
+    router.push("/");
+    router.refresh();
+  };
 
   return (
     <>
@@ -139,7 +152,10 @@ const DashBoardSideBar = () => {
         </div>
 
         <div className="flex flex-col gap-2 mt-auto pt-6">
-          <Button className="bg-red-500/80  text-white flex items-center justify-start gap-4 px-4 py-3.5 rounded-xl font-medium w-full hover:bg-red-500/10 hover:text-danger">
+          <Button
+            onClick={handleSignOut}
+            className="bg-red-500/80  text-white flex items-center justify-start gap-4 px-4 py-3.5 rounded-xl font-medium w-full hover:bg-red-500/10 hover:text-danger"
+          >
             <FiLogOut className="text-lg" />
             Logout
           </Button>
