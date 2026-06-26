@@ -83,7 +83,7 @@ const Banner = () => {
                 <div className="container mx-auto px-4 md:px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-2">
                   <div className="flex flex-col gap-5 max-w-xl">
                     <span className="text-xs md:text-sm font-semibold text-[#6f4ff2] tracking-widest uppercase bg-[#6f4ff2]/10 border border-[#6f4ff2]/20 px-3.5 py-1.5 rounded-full w-fit">
-                      Curated Masterpieces
+                      See Artworks
                     </span>
 
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
