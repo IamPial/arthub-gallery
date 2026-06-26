@@ -15,19 +15,22 @@ import ArtImg from "@/assets/art.png";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 
 const LoginPage = () => {
   const router = useRouter();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
+
     const { data, error } = await authClient.signIn.email({
       email: user.email,
       password: user.password,
     });
+    const role = data.user?.role;
 
     if (data) {
       toast("Logged in Successfully", {
@@ -35,7 +38,15 @@ const LoginPage = () => {
           color: "#00c950",
         },
       });
-      router.push("/");
+
+      if (role === "artist") {
+        router.push("/dashboard/artist");
+      } else if (role === "admin") {
+        router.push("/dashboard/admin");
+      } else {
+        router.push("/");
+      }
+
       router.refresh();
     }
   };
