@@ -54,11 +54,20 @@ const ArtistProfilePage = () => {
         newPassword: userData.newPassword,
         revokeOtherSessions: true,
       });
-      toast.success("Password changes successfully");
+      toast.success("Password changes successfully", {
+        style: {
+          color: "#00c950",
+        },
+      });
     }
 
     if (Object.keys(updateData).length > 0) {
       await authClient.updateUser(updateData);
+      toast.success("Updated profiles data successfully",{
+        style: {
+          color: "#00c950",
+        },
+      });
     }
   };
   const inputClassName =
