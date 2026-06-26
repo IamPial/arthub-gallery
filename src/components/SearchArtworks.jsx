@@ -1,9 +1,14 @@
 "use client";
 
 import { Input, Select, ListBox } from "@heroui/react";
-import { FiSearch } from "react-icons/fi";
+import { redirect } from "next/navigation";
 
 const SearchArtworks = () => {
+  const handleOnChange = (e) => {
+    // redirect(e.target.value);
+    redirect(`/artworks?search=${e.target.value}`);
+  };
+
   const inputClass =
     "bg-[#131129] border border-white/10 rounded-xl h-11 text-white placeholder:text-slate-500 text-sm data-[hover=true]:border-[#6f4ff2]/50 data-[focus=true]:border-[#6f4ff2]";
 
@@ -16,10 +21,8 @@ const SearchArtworks = () => {
           <Input
             name="search"
             type="search"
+            onChange={handleOnChange}
             placeholder="Search artworks"
-            startContent={
-              <FiSearch className="text-slate-400 mr-1" size={16} />
-            }
             className={inputClass}
           />
         </div>
@@ -28,9 +31,8 @@ const SearchArtworks = () => {
         <div className="md:col-span-2">
           <Select
             name="sortBy"
-            placeholder="Sort By"
             className="flex flex-col"
-            defaultValue="newest"
+            defaultValue="price-low"
           >
             <Select.Trigger className="bg-[#131129] border border-white/10 rounded-xl h-11 px-4 text-sm text-white data-[hovered=true]:border-[#6f4ff2]/50 data-[focus-visible=true]:border-[#6f4ff2]">
               <Select.Value />
@@ -39,22 +41,16 @@ const SearchArtworks = () => {
             <Select.Popover className="bg-[#1a163a] border border-white/10 rounded-xl shadow-xl">
               <ListBox className="p-1">
                 <ListBox.Item
-                  id="newest"
-                  className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
-                >
-                  Newest Artworks
-                </ListBox.Item>
-                <ListBox.Item
                   id="price-low"
                   className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
                 >
-                  Price: Low to High
+                  Low to High
                 </ListBox.Item>
                 <ListBox.Item
                   id="price-high"
                   className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
                 >
-                  Price: High to Low
+                  High to Low
                 </ListBox.Item>
               </ListBox>
             </Select.Popover>
@@ -68,7 +64,7 @@ const SearchArtworks = () => {
         <div>
           <Select
             name="category"
-            placeholder="All Categories"
+            defaultValue="painting"
             className="flex flex-col"
           >
             <Select.Trigger className="bg-[#131129] border border-white/10 rounded-xl h-11 px-4 text-sm text-white data-[hovered=true]:border-[#6f4ff2]/50 data-[focus-visible=true]:border-[#6f4ff2]">
@@ -77,12 +73,6 @@ const SearchArtworks = () => {
             </Select.Trigger>
             <Select.Popover className="bg-[#1a163a] border border-white/10 rounded-xl shadow-xl">
               <ListBox className="p-1">
-                <ListBox.Item
-                  id="all"
-                  className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
-                >
-                  All Categories
-                </ListBox.Item>
                 <ListBox.Item
                   id="painting"
                   className="text-sm text-slate-200 px-3 py-2 rounded-lg hover:bg-[#6f4ff2]/20 cursor-pointer"
