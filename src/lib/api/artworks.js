@@ -4,7 +4,7 @@ const baseURl = process.env.NEXT_PUBLIC_SERVER_URL;
 
 //get all artworks
 export const getAllArtworks = async (obj = {}) => {
-  const { search, minPrice, maxPrice, category } = obj;
+  const { search, minPrice, maxPrice, category, sortBy } = obj;
   const searchUrl = new URL(`${baseURl}/api/all-artworks`);
 
   if (search) searchUrl.searchParams.set("search", search);
