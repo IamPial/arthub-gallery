@@ -16,9 +16,9 @@ import { FiEdit2 } from "react-icons/fi";
 import { imgUpload } from "@/lib/imgUpload";
 import Image from "next/image";
 import { updateArtWorks } from "@/lib/actions/artworks";
+import { toast } from "sonner";
 
-export default function EditArtworksModal({ artWork }) {
-  console.log(artWork);
+const EditArtworksModal = ({ artWork }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,6 +36,11 @@ export default function EditArtworksModal({ artWork }) {
       ...addData,
       image: imageUrl,
       updatedAt: new Date(),
+    });
+    toast.success("Successfully updated artworks data", {
+      style: {
+        color: "#00c950",
+      },
     });
   };
 
@@ -196,4 +201,6 @@ export default function EditArtworksModal({ artWork }) {
       </Modal.Backdrop>
     </Modal>
   );
-}
+};
+
+export default EditArtworksModal;
