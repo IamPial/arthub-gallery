@@ -4,8 +4,13 @@ import { getAllArtworks } from "@/lib/api/artworks";
 import { FiInbox } from "react-icons/fi";
 
 const BrowseArtworksPage = async ({ searchParams }) => {
-  const { search } = await searchParams;
-  const artworks = await getAllArtworks(search);
+  const { search, minPrice, maxPrice, category } = await searchParams;
+  const artworks = await getAllArtworks({
+    search,
+    minPrice,
+    maxPrice,
+    category,
+  });
 
   return (
     <div className="flex flex-col gap-6 w-full p-4">
