@@ -1,11 +1,11 @@
 import Banner from "@/components/homepage/Banner";
-import FeaturedSection from "@/components/homepage/Featured";
+import FeaturedArtworksSection from "@/components/homepage/FeaturedArtworksSection";
 
 const HomePage = () => {
   return (
     <div>
-      <Banner/>
-      <FeaturedSection/>
+      <Banner />
+      <FeaturedArtworksSection />
     </div>
   );
 };
