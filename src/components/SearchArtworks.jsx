@@ -1,12 +1,20 @@
 "use client";
 
 import { Input, Select, ListBox } from "@heroui/react";
-import { redirect } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SearchArtworks = () => {
-  const handleOnChange = (e) => {
-    // redirect(e.target.value);
-    redirect(`/artworks?search=${e.target.value}`);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const updateQuery = (key, value) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value) {
+      params.set(key, value);
+    } else {
+      params.delete(key);
+    }
+    router.push(`/artworks?${params.toString()}`);
   };
 
   const inputClass =
@@ -14,20 +22,17 @@ const SearchArtworks = () => {
 
   return (
     <div className="w-full bg-[#1a163a]/40 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 max-w-7xl mx-auto backdrop-blur-md">
-      {/* Top Row: Search & Sort */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {/* Search Input */}
         <div className="md:col-span-2">
           <Input
             name="search"
             type="search"
-            onChange={handleOnChange}
+            onChange={(e) => updateQuery("search", e.target.value)}
             placeholder="Search artworks"
             className={inputClass}
           />
         </div>
 
-        {/* Sorting Dropdown */}
         <div className="md:col-span-2">
           <Select
             name="sortBy"
@@ -60,11 +65,13 @@ const SearchArtworks = () => {
 
       {/* Bottom Row: Category & Price Range */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-white/5 pt-4">
-        {/* Category Filter */}
         <div>
           <Select
             name="category"
             defaultValue="painting"
+            onSelectionChange={(val) => {
+              updateQuery("category", [...val][0]);
+            }}
             className="flex flex-col"
           >
             <Select.Trigger className="bg-[#131129] border border-white/10 rounded-xl h-11 px-4 text-sm text-white data-[hovered=true]:border-[#6f4ff2]/50 data-[focus-visible=true]:border-[#6f4ff2]">
@@ -108,6 +115,7 @@ const SearchArtworks = () => {
             type="number"
             name="minPrice"
             placeholder="Min Price ($)"
+            onChange={(e) => updateQuery("minPrice", e.target.value)}
             className={inputClass}
           />
         </div>
@@ -118,6 +126,7 @@ const SearchArtworks = () => {
             type="number"
             name="maxPrice"
             placeholder="Max Price ($)"
+            onChange={(e) => updateQuery("maxPrice", e.target.value)}
             className={inputClass}
           />
         </div>
