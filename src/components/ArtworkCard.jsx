@@ -1,7 +1,8 @@
 "use client";
 
-import { Card } from "@heroui/react";
+import { Card, Button } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
 
 const ArtworkCard = ({ artwork }) => {
   return (
@@ -26,14 +27,13 @@ const ArtworkCard = ({ artwork }) => {
 
         {/* Artist Name */}
         <p className="text-xs text-slate-400 font-medium truncate">
-          by {artwork?.userName.split(" ")[0]}
+          by {artwork?.userName ? artwork.userName.split(" ")[0] : "Artist"}
         </p>
 
         {/* Divider */}
         <div className="w-full h-px bg-white/5 my-1" />
 
-        {/* Price Tag */}
-        <div className="flex items-center justify-between mt-0.5">
+        <div className="flex items-center justify-between mt-1 gap-2">
           <span className="text-[10px] text-slate-500 uppercase font-semibold tracking-wider">
             Price
           </span>
@@ -41,6 +41,15 @@ const ArtworkCard = ({ artwork }) => {
             ${artwork?.price}
           </span>
         </div>
+
+        <Link href={`/artworks/${artwork?._id}`}>
+          <Button
+            size="sm"
+            className=" w-full bg-[#6f4ff2]/10 border border-[#6f4ff2]/20 text-[#a78bfa] hover:bg-[#6f4ff2] hover:text-white font-semibold text-xs rounded-xl transition-all duration-300 h-9 px-3 mt-2 "
+          >
+            View Details
+          </Button>
+        </Link>
       </div>
     </Card>
   );
