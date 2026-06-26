@@ -17,6 +17,13 @@ export const getAllArtworks = async (obj = {}) => {
   return data;
 };
 
+//get single artworks details
+export const getArtworksDetails = async (id) => {
+  const res = await fetch(`${baseURl}/api/all-artworks/${id}`);
+  const data = await res.json();
+  return data;
+};
+
 //get artworks by artist
 export const getArtworks = async () => {
   const token = await getTokenServer();
