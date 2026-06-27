@@ -17,16 +17,6 @@ const ArtworkDetailsPage = async ({ params }) => {
   const { id } = await params;
   const art = await getArtworksDetails(id);
 
-  // category:"painting"
-  // createdAt:"2026-06-25T10:29:31.308Z"
-  // description:"An acrylic painting capturing the peaceful movement of ocean waves."
-  // image:"https://i.ibb.co/5htfLkwH/ocean-painting.jpg"
-  // price:"240"
-  // title:"Ocean Breeze"
-  // userId:"6a3c2f3d6f0c025e82d37bc3"
-  // userName:"Manik Hossain"
-  // _id: "6a3d030bf668dfaed32ed432"
-
   const data = await getUserSession();
   const user = data?.user;
   const role = user?.role === "buyer";
@@ -111,7 +101,7 @@ const ArtworkDetailsPage = async ({ params }) => {
                 <FiDollarSign size={10} /> Price
               </span>
               <span className="text-xl font-black text-[#6f4ff2]">
-                ${art.price}
+                ${art?.price}
               </span>
             </div>
             <div className="p-4 bg-[#1a163a]/40 border border-white/5 rounded-2xl flex flex-col gap-1">
@@ -130,7 +120,7 @@ const ArtworkDetailsPage = async ({ params }) => {
               Description
             </span>
             <p className="text-sm text-slate-300 leading-relaxed bg-[#131129]/20 p-4 rounded-2xl border border-white/[0.02] whitespace-pre-line">
-              {art.description}
+              {art?.description}
             </p>
           </div>
 
@@ -160,6 +150,11 @@ const ArtworkDetailsPage = async ({ params }) => {
                 <input type="hidden" name="artistId" value={art?.userId} />
                 <input type="hidden" name="artistName" value={art?.userName} />
                 <input type="hidden" name="artWorksImg" value={art?.image} />
+                <input
+                  type="hidden"
+                  name="description"
+                  value={art?.description}
+                />
                 <Button
                   type="submit"
                   className="w-full bg-[#6f4ff2] hover:bg-[#5b3ed4] text-white font-bold rounded-xl h-12"
