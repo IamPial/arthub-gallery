@@ -86,11 +86,13 @@ const Navbar = () => {
                 Browse Artworks
               </NavLink>
             </li>
-            <li>
-              <NavLink href="/pricing" className="font-medium text-white">
-                Pricing
-              </NavLink>
-            </li>
+            {user?.role == "buyer" && (
+              <li>
+                <NavLink href="/pricing" className="font-medium text-white">
+                  Pricing
+                </NavLink>
+              </li>
+            )}
           </ul>
 
           <div className="items-center gap-4 flex">
@@ -188,15 +190,17 @@ const Navbar = () => {
                   Browse Artworks
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  href="/pricing"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block py-3 px-4 rounded-lg hover:bg-white/5 hover:text-[#6f4ff2] font-medium transition-colors"
-                >
-                  Pricing
-                </NavLink>
-              </li>
+              {user?.role == "buyer" && (
+                <li>
+                  <NavLink
+                    href="/pricing"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-3 px-4 rounded-lg hover:bg-white/5 hover:text-[#6f4ff2] font-medium transition-colors"
+                  >
+                    Pricing
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </div>
         )}
