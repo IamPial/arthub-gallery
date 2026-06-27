@@ -8,7 +8,6 @@ import Link from "next/link";
 const ArtistProfilePage = async ({ params }) => {
   const { id } = await params;
   const data = await getArtistById(id);
-  console.log(data);
   const artist = data?.artist;
   const artworks = data?.artworks;
 
