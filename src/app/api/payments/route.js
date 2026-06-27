@@ -15,6 +15,7 @@ export async function POST(request) {
     const artistId = formData.get("artistId");
     const artWorksImg = formData.get("artWorksImg");
     const artistName = formData.get("artistName");
+    const description = formData.get("description")
 
     const userSession = await getUserSession();
     const user = userSession?.user;
@@ -44,6 +45,7 @@ export async function POST(request) {
         artistName,
         artistId,
         artWorksImg,
+        description,
       },
       mode: "payment",
       success_url: `${origin}/pricing/payment-success?session_id={CHECKOUT_SESSION_ID}`,
