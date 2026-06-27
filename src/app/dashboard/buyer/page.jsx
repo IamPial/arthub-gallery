@@ -1,13 +1,9 @@
 import { getTransactions } from "@/lib/api/transactions";
 import { Table } from "@heroui/react";
+import { format } from "date-fns";
 
 const PurchaseHistoryPage = async () => {
   const purchaseData = await getTransactions();
-
-  // artistName: "Manik Hossain"
-  // price:"180"
-  // purchaseDate:"2026-06-27T09:17:04.123Z"
-  // title:"Golden Sunset Canvas"
 
   return (
     <div className="flex flex-col gap-6">
@@ -53,9 +49,7 @@ const PurchaseHistoryPage = async () => {
                       ${items?.price}
                     </Table.Cell>
                     <Table.Cell className="text-slate-400  bg-[#1d1932] py-4">
-                      {new Date(items?.purchaseDate).toLocaleDateString(
-                        "en-US",
-                      )}
+                      {format(new Date(items?.purchaseDate), "MMM dd , yyyy")}
                     </Table.Cell>
                   </Table.Row>
                 );
