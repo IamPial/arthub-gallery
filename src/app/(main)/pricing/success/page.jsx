@@ -15,7 +15,6 @@ export default async function Success({ searchParams }) {
   const session = await stripe.checkout.sessions.retrieve(session_id, {
     expand: ["line_items", "payment_intent"],
   });
-  console.log(session);
 
   const { status, customer_details, amount_total, id: txnId } = session;
   const metadata = session?.metadata;
