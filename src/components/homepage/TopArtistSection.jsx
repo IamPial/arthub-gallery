@@ -103,6 +103,7 @@ export default function TopArtistSection() {
               >
                 View Portfolio →
               </Link>
+              z
             </div>
           </motion.div>
         ))}
