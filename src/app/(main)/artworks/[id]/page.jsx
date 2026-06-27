@@ -17,6 +17,16 @@ const ArtworkDetailsPage = async ({ params }) => {
   const { id } = await params;
   const art = await getArtworksDetails(id);
 
+  // category:"painting"
+  // createdAt:"2026-06-25T10:29:31.308Z"
+  // description:"An acrylic painting capturing the peaceful movement of ocean waves."
+  // image:"https://i.ibb.co/5htfLkwH/ocean-painting.jpg"
+  // price:"240"
+  // title:"Ocean Breeze"
+  // userId:"6a3c2f3d6f0c025e82d37bc3"
+  // userName:"Manik Hossain"
+  // _id: "6a3d030bf668dfaed32ed432"
+
   const data = await getUserSession();
   const user = data?.user;
   const role = user?.role === "buyer";
@@ -143,9 +153,20 @@ const ArtworkDetailsPage = async ({ params }) => {
                 You Own This Artworks
               </Button>
             ) : role ? (
-              <Button className="w-full bg-[#6f4ff2] hover:bg-[#5b3ed4] text-white font-bold rounded-xl h-12">
-                Purchase Now
-              </Button>
+              <form action="/api/payments" method="POST">
+                <input type="hidden" name="price" value={art?.price} />
+                <input type="hidden" name="title" value={art?.title} />
+                <input type="hidden" name="productId" value={art?._id} />
+                <input type="hidden" name="artistId" value={art?.userId} />
+                <input type="hidden" name="artistName" value={art?.userName} />
+                <input type="hidden" name="artWorksImg" value={art?.image} />
+                <Button
+                  type="submit"
+                  className="w-full bg-[#6f4ff2] hover:bg-[#5b3ed4] text-white font-bold rounded-xl h-12"
+                >
+                  Buy Now
+                </Button>
+              </form>
             ) : (
               <Button
                 isDisabled
