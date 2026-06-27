@@ -24,7 +24,7 @@ export default function NotFound() {
 
       <Link href="/">
         <Button className="bg-[#6f4ff2] hover:bg-[#5b3ed4] text-white font-bold text-sm rounded-xl px-6 h-12 shadow-lg shadow-[#6f4ff2]/20 transition-all">
-          Return to Terminal
+          Return to Home
         </Button>
       </Link>
     </div>
