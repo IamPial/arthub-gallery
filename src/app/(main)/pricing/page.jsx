@@ -34,8 +34,8 @@ const pricingPlans = [
     price: "$19.99",
     period: "/ monthly",
     limit: "Unlimited paintings allowed",
-    icon:<FaInfinity className="text-amber-400" size={22} /> ,
-    
+    icon: <FaInfinity className="text-amber-400" size={22} />,
+
     popular: false,
     bg: "bg-[#131129]/40 border-white/5",
     btnText: "Go Premium",
@@ -92,7 +92,7 @@ export default function PricingPage() {
                       {plan.name}
                     </Card.Title>
                     <Card.Description className="text-xs text-slate-500 font-semibold mt-0.5 uppercase tracking-wider">
-                      Uplink Package
+                      Arthub Package
                     </Card.Description>
                   </div>
                 </Card.Header>
@@ -127,13 +127,17 @@ export default function PricingPage() {
                 </Card.Content>
               </div>
 
-              <Card.Footer className="p-6 pt-0 w-full">
-                <Button
-                  className={`w-full font-bold rounded-xl h-12 text-sm transition-all ${plan.btnClass}`}
-                >
-                  {plan.btnText}
-                </Button>
-              </Card.Footer>
+              <form action="/api/subscription" method="POST">
+                <input type="hidden" name="plan_id" value={plan.name} />
+                <Card.Footer className="p-6 pt-0 w-full">
+                  <Button
+                    type="submit"
+                    className={`w-full font-bold rounded-xl h-12 text-sm transition-all ${plan.btnClass}`}
+                  >
+                    {plan.btnText}
+                  </Button>
+                </Card.Footer>
+              </form>
             </Card>
           </motion.div>
         ))}
