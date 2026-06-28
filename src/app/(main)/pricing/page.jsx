@@ -35,7 +35,6 @@ const pricingPlans = [
     period: "/ monthly",
     limit: "Unlimited paintings allowed",
     icon: <FaInfinity className="text-amber-400" size={22} />,
-
     popular: false,
     bg: "bg-[#131129]/40 border-white/5",
     btnText: "Go Premium",
