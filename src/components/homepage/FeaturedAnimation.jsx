@@ -36,7 +36,7 @@ const FeaturedAnimation = ({ artworks }) => {
       viewport={{ once: true, margin: "-100px" }}
       className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 w-full"
     >
-      {artworks.slice(0, 6).map((artwork) => (
+      {artworks.map((artwork) => (
         <motion.div
           key={artwork._id}
           variants={cardVariants}
