@@ -5,7 +5,7 @@ import Link from "next/link";
 import { getTransactions } from "@/lib/api/transactions";
 
 const BoughtArtworksPage = async () => {
-  const buyingData = await getTransactions();
+  const buyingData = await getTransactions("buyer");
 
   return (
     <div className="flex flex-col gap-6">
