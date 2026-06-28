@@ -15,7 +15,7 @@ export async function POST(request) {
     const artistId = formData.get("artistId");
     const artWorksImg = formData.get("artWorksImg");
     const artistName = formData.get("artistName");
-    const description = formData.get("description")
+    const description = formData.get("description");
 
     const userSession = await getUserSession();
     const user = userSession?.user;
@@ -40,6 +40,7 @@ export async function POST(request) {
         price: Number(price),
         userId: user?.id,
         userEmail: user?.email,
+        userName: user?.name,
         title,
         productId,
         artistName,

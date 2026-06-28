@@ -25,7 +25,7 @@ export default async function Success({ searchParams }) {
 
   const { status, customer_details, amount_total, id: txnId } = session;
   const metadata = session?.metadata;
-  const { userId, userEmail } = session.metadata;
+  const { userId, userEmail, userName } = session.metadata;
   const customerEmail = customer_details?.email;
   const formattedAmount = (amount_total / 100).toFixed(2);
   if (status === "open") {
@@ -38,6 +38,7 @@ export default async function Success({ searchParams }) {
       sessionId: session_id,
       buyerId: userId,
       buyerEmail: userEmail,
+      buyerName: userName,
       purchaseDate: new Date(),
     });
     return (
@@ -53,7 +54,7 @@ export default async function Success({ searchParams }) {
 
               <div className="flex flex-col gap-1">
                 <Card.Title className="text-2xl font-black text-white tracking-wide">
-                  Order Confirmed!
+                  Payment Successful!
                 </Card.Title>
                 <Card.Description className="text-xs text-slate-400 max-w-sm">
                   We appreciate your business! Your artwork payment has been
@@ -107,7 +108,7 @@ export default async function Success({ searchParams }) {
                   href="mailto:orders@example.com"
                   className="text-slate-400 hover:text-white underline transition-colors"
                 >
-                  orders@example.com
+                  arthub@example.com
                 </a>
               </p>
             </Card.Content>
@@ -116,7 +117,7 @@ export default async function Success({ searchParams }) {
               <Link href="/dashboard/buyer">
                 {" "}
                 <Button className="w-full bg-[#6f4ff2] hover:bg-[#5b3ed4] text-white font-bold rounded-xl h-12 text-sm shadow-lg shadow-[#6f4ff2]/20 flex items-center justify-center gap-2 transition-all cursor-pointer">
-                  <span>Track Your Order</span>
+                  <span>See Buying Artworks</span>
                   <FiArrowRight size={16} />
                 </Button>{" "}
               </Link>
