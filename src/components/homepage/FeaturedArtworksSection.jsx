@@ -6,8 +6,9 @@ import { getAllArtworks } from "@/lib/api/artworks";
 import FeaturedAnimation from "./FeaturedAnimation";
 
 const FeaturedArtworksSection = async () => {
-  const artworks = await getAllArtworks({ limit: 6 });
+  const artworks = await getAllArtworks({limit:8});
 
+  //prevent error with null
   if (!artworks || artworks.length === 0) return null;
 
   return (
