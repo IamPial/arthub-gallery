@@ -3,9 +3,11 @@ import { getTokenServer } from "../getToken";
 const baseURl = process.env.NEXT_PUBLIC_SERVER_URL;
 
 //get all artworks
-export const getAllArtworks = async (obj = {}) => {
-  const { search, minPrice, maxPrice, category, sortBy } = obj;
+export const getAllArtworks = async (obj={}) => {
+  const { search, minPrice, maxPrice, category } = obj;
   const searchUrl = new URL(`${baseURl}/api/all-artworks`);
+
+  if (obj.limit) searchUrl.searchParams.set("limit", obj.limit);
 
   if (search) searchUrl.searchParams.set("search", search);
   if (minPrice) searchUrl.searchParams.set("minPrice", minPrice);
