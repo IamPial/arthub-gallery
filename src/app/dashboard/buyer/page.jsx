@@ -3,7 +3,8 @@ import { Table } from "@heroui/react";
 import { format } from "date-fns";
 
 const PurchaseHistoryPage = async () => {
-  const purchaseData = await getTransactions();
+
+  const purchaseData = await getTransactions("buyer");
 
   return (
     <div className="flex flex-col gap-6">
