@@ -14,12 +14,14 @@ export const getAllArtworks = async (obj = {}) => {
   if (maxPrice) searchUrl.searchParams.set("maxPrice", maxPrice);
   if (category) searchUrl.searchParams.set("category", category);
 
-  const res = await fetch(searchUrl.toString(), {
-    cache: "no-store",
-  });
-
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch(searchUrl.toString(), { cache: "no-store" });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return [];
+  }
 };
 
 //get single artworks details
