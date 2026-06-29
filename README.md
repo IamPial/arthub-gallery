@@ -1,10 +1,10 @@
-### ArtHub – Online Art Marketplace
+# ArtHub – Online Art Marketplace
 
 A modern, full-stack MERN marketplace where artists showcase their artwork and collectors purchase authentic creations securely through Stripe.
 
 ---
 
-# Project Overview
+## Project Overview
 
 ArtHub is a role-based online art marketplace built with the MERN stack. It enables artists to publish and manage artwork while allowing buyers to discover, purchase, and review original art pieces. The platform includes secure authentication, Stripe payment integration, subscription plans, analytics dashboards, and role-based access control.
 
@@ -14,7 +14,7 @@ This project demonstrates production-level full-stack development practices incl
 
 # Live Website
 
-### 🌐 Live Site
+## 🌐 Live Site
 
 https://arthub-gallery.vercel.app
 
