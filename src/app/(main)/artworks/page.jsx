@@ -1,22 +1,29 @@
 import ArtworkCard from "@/components/ArtworkCard";
 import SearchArtworks from "@/components/SearchArtworks";
+import PaginationControl from "@/components/PaginationControl";
 import { getAllArtworks } from "@/lib/api/artworks";
 import { FiInbox } from "react-icons/fi";
 
 const BrowseArtworksPage = async ({ searchParams }) => {
   const { search, minPrice, maxPrice, category } = await searchParams;
-  const artworks = await getAllArtworks({
+  const page = (await searchParams).page || 1;
+
+  const result = await getAllArtworks({
     search,
     minPrice,
     maxPrice,
     category,
+    page,
+    limit: 8,
   });
+
+  const artworks = result.data || [];
+  const totalPages = result.totalPages || 1;
 
   return (
     <div className="flex flex-col gap-6 w-full p-4">
-      <div className="container mx-auto ">
+      <div className="container mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-          {" "}
           Artworks Exhibition
         </h1>
         <p className="text-sm text-slate-400">
@@ -30,11 +37,9 @@ const BrowseArtworksPage = async ({ searchParams }) => {
           <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-[#6f4ff2]/10 border border-[#6f4ff2]/20 text-[#a78bfa] mb-5 shadow-lg shadow-[#6f4ff2]/5">
             <FiInbox size={28} />
           </div>
-
           <h3 className="text-lg font-bold text-white tracking-wide">
             No Masterpieces Found
           </h3>
-
           <p className="text-sm text-slate-400 max-w-sm mt-2 font-medium leading-relaxed">
             {search ? (
               <>
@@ -48,11 +53,20 @@ const BrowseArtworksPage = async ({ searchParams }) => {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl mx-auto">
-          {artworks.map((artwork) => (
-            <ArtworkCard key={artwork._id} artwork={artwork} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl mx-auto">
+            {artworks.map((artwork) => (
+              <ArtworkCard key={artwork._id} artwork={artwork} />
+            ))}
+          </div>
+
+          {totalPages > 1 && (
+            <PaginationControl
+              totalPages={totalPages}
+              currentPage={Number(page)}
+            />
+          )}
+        </>
       )}
     </div>
   );
