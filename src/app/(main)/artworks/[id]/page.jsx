@@ -150,6 +150,7 @@ const ArtworkDetailsPage = async ({ params }) => {
                 <input type="hidden" name="artistId" value={art?.userId} />
                 <input type="hidden" name="artistName" value={art?.userName} />
                 <input type="hidden" name="artWorksImg" value={art?.image} />
+                <input type="hidden" name="category" value={art?.category} />
                 <input
                   type="hidden"
                   name="description"
