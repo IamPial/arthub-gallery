@@ -4,6 +4,13 @@ import PaginationControl from "@/components/PaginationControl";
 import { getAllArtworks } from "@/lib/api/artworks";
 import { FiInbox } from "react-icons/fi";
 
+export const metadata = {
+  title: "ArtHub- Browse Artworks",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
+
 const BrowseArtworksPage = async ({ searchParams }) => {
   const { search, minPrice, maxPrice, category } = await searchParams;
   const page = (await searchParams).page || 1;

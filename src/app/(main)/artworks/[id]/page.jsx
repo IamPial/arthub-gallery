@@ -13,6 +13,17 @@ import EditArtworksModal from "@/components/dashboard/artist/EditArtworksModal";
 import { getArtworksDetails } from "@/lib/api/artworks";
 import { getUserSession } from "@/lib/core/session";
 
+
+
+export const metadata = {
+  title: "ArtHub- Browse Artworks Details",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
+
+
+
 const ArtworkDetailsPage = async ({ params }) => {
   const { id } = await params;
   const art = await getArtworksDetails(id);

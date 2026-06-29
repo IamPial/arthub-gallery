@@ -6,6 +6,15 @@ import { FiCalendar, FiDollarSign, FiUser, FiArrowLeft } from "react-icons/fi";
 import { format } from "date-fns";
 import { getTransactionsDetails } from "@/lib/api/transactions";
 
+export const metadata = {
+  title: "ArtHub- Browse Artworks Details",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
+
+
+
 const ArtworksBuyingDetailsPage = async ({ params }) => {
   const { id } = await params;
   const art = await getTransactionsDetails(id);

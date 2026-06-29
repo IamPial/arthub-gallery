@@ -12,14 +12,13 @@ import {
   FiDollarSign,
 } from "react-icons/fi";
 
-// const COLORS = ["#6f4ff2", "#06b6d4", "#f59e0b", "#ec4899"];
+export const metadata = {
+  title: "ArtHub- Admin Dashboard",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
 
-// const dummyStats = {
-//   totalUsers: 1420,
-//   totalArtists: 340,
-//   artworksSold: 890,
-//   totalRevenue: "45250.00",
-// };
+
 
 const AdminDashBoardPage = async () => {
   const allUsers = await getAllUsers();

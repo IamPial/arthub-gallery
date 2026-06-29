@@ -4,6 +4,12 @@ import { format } from "date-fns";
 import { BiPurchaseTagAlt } from "react-icons/bi";
 import { FiTrendingDown } from "react-icons/fi";
 
+export const metadata = {
+  title: "ArtHub - Buyer Dashboard  ",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
 const PurchaseHistoryPage = async () => {
   const purchaseData = await getTransactions("buyer");
 

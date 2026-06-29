@@ -2,6 +2,14 @@ import { getAdminAllTransactions } from "@/lib/api/adminTransactions";
 import { Table } from "@heroui/react";
 import { format } from "date-fns";
 
+export const metadata = {
+  title: "ArtHub - Dashboard All Transations",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
+
+
 const AdminAllTransactionPage = async () => {
   const transactions = await getAdminAllTransactions();
   return (

@@ -3,6 +3,13 @@ import { Table } from "@heroui/react";
 import { format } from "date-fns";
 import { FiTrendingDown } from "react-icons/fi";
 
+export const metadata = {
+  title: "Dashboard - Sales History",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
+
 const SalesHistoryPage = async () => {
   const sales = await getTransactions("artist");
 

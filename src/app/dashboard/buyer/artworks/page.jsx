@@ -4,6 +4,14 @@ import Link from "next/link";
 
 import { getTransactions } from "@/lib/api/transactions";
 
+export const metadata = {
+  title: "ArtHub- Browse Artworks",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
+
+
 const BoughtArtworksPage = async () => {
   const buyingData = await getTransactions("buyer");
 

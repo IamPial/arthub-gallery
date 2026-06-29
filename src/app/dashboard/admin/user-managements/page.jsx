@@ -3,6 +3,15 @@ import { getAllUsers } from "@/lib/api/users";
 import { Table } from "@heroui/react";
 import { FiUser, FiShield, FiFeather } from "react-icons/fi";
 
+export const metadata = {
+  title: "ArtHub- Dashboard User Managements",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
+
+
+
 const AdminManageAllUsersPage = async () => {
   const allUsers = await getAllUsers();
 

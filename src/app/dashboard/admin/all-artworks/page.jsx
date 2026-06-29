@@ -2,6 +2,13 @@ import AdminArtworksDeleteModal from "@/components/dashboard/admin/AdminArtworks
 import { getTransactions } from "@/lib/api/transactions";
 import { Table} from "@heroui/react";
 
+export const metadata = {
+  title: "ArtHub- Dashboard Admin Artworks",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
+
 
 const AdminManageAllArtworksPage = async () => {
   const artworks = await getTransactions("admin");

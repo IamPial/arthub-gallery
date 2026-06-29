@@ -5,6 +5,13 @@ import ArtworkCard from "@/components/ArtworkCard";
 import { getArtistById } from "@/lib/api/artist";
 import Link from "next/link";
 
+export const metadata = {
+  title: "ArtHub- Artist Profile",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
+
 const ArtistProfilePage = async ({ params }) => {
   const { id } = await params;
   const data = await getArtistById(id);

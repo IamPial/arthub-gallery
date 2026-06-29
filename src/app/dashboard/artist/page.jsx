@@ -8,6 +8,13 @@ import DeleteArtworksModal from "@/components/dashboard/artist/DeleteArtworksMod
 import EditArtworksModal from "@/components/dashboard/artist/EditArtworksModal";
 import Link from "next/link";
 
+export const metadata = {
+  title: "ArtHub- Artist",
+  description:
+    "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
+};
+
+
 const ManageArtworksPage = async () => {
   const artworks = await getArtworks();
 
