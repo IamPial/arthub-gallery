@@ -1,37 +1,12 @@
-"use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { getAllArtworks } from "@/lib/api/artworks";
+
 import { FiGrid } from "react-icons/fi";
+import CategoriesAnimation from "./CategoriesAnimation";
 
-const categories = [
-  {
-    name: "Painting",
-    slug: "painting",
-    count: "120+ Items",
-    bg: "from-blue-600/20 to-transparent",
-  },
-  {
-    name: "Digital Art",
-    slug: "digital",
-    count: "450+ Items",
-    bg: "from-purple-600/20 to-transparent",
-  },
-  {
-    name: "Sculpture",
-    slug: "sculpture",
-    count: "80+ Items",
-    bg: "from-pink-600/20 to-transparent",
-  },
-  {
-    name: "Photography",
-    slug: "photography",
-    count: "210+ Items",
-    bg: "from-emerald-600/20 to-transparent",
-  },
-];
-
-export default function ArtCategoriesSection() {
+const ArtCategoriesSection = async () => {
+  const categories = await getAllArtworks({});
+  
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-12 flex flex-col gap-8 overflow-hidden">
       <div className="flex flex-col gap-1 border-b border-white/5 pb-4">
@@ -46,41 +21,9 @@ export default function ArtCategoriesSection() {
           </span>
         </h2>
       </div>
-
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full"
-      >
-        {categories.map((cat, index) => (
-          <Link
-            href={`/artworks?search=${cat.slug}`}
-            key={cat.slug}
-            className="block"
-          >
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, scale: 0.95 },
-                show: {
-                  opacity: 1,
-                  scale: 1,
-                  transition: { delay: index * 0.08 },
-                },
-              }}
-              whileHover={{ y: -5, borderColor: "rgba(167, 139, 250, 0.4)" }}
-              className={`p-6 bg-gradient-to-br ${cat.bg} bg-[#131129]/40 border border-white/5 rounded-2xl backdrop-blur-md flex flex-col gap-1 cursor-pointer transition-colors h-32 justify-end`}
-            >
-              <h3 className="text-lg font-black text-white tracking-wide group-hover:text-[#a78bfa]">
-                {cat.name}
-              </h3>
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
-                {cat.count}
-              </p>
-            </motion.div>
-          </Link>
-        ))}
-      </motion.div>
+      <CategoriesAnimation categories={categories} />
     </section>
   );
-}
+};
+
+export default ArtCategoriesSection;
