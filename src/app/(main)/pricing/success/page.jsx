@@ -18,6 +18,7 @@ export default async function Success({ searchParams }) {
 
   const { status, customer_details, amount_total, id: txnId } = session;
   const metadata = session?.metadata;
+  const { userEmail } = session.metadata;
   const customerEmail = customer_details?.email;
   const formattedAmount = (amount_total / 100).toFixed(2);
 
@@ -26,7 +27,14 @@ export default async function Success({ searchParams }) {
   }
 
   if (status === "complete") {
-    await subscriptions({ ...metadata, sessionId: session_id });
+    await subscriptions({
+      ...metadata,
+      sessionId: session_id,
+      email: userEmail,
+      amount: session?.amount_total,
+      date: new Date(),
+    });
+    // await subscriptions({ ...metadata, });
     return (
       <main className="w-full min-h-screen bg-[#0b0a14] flex items-center justify-center p-4 md:p-6 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
