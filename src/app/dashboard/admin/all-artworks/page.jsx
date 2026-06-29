@@ -1,7 +1,7 @@
-import DeleteArtworksModal from "@/components/dashboard/artist/DeleteArtworksModal";
+import AdminArtworksDeleteModal from "@/components/dashboard/admin/AdminArtworksDeleteModal";
 import { getTransactions } from "@/lib/api/transactions";
-import { Table, Button } from "@heroui/react";
-import { FiTrash2 } from "react-icons/fi";
+import { Table} from "@heroui/react";
+
 
 const AdminManageAllArtworksPage = async () => {
   const artworks = await getTransactions("admin");
@@ -36,7 +36,7 @@ const AdminManageAllArtworksPage = async () => {
                   ${art?.price}
                 </Table.Cell>
                 <Table.Cell className="text-right">
-                  <DeleteArtworksModal artWork={art} />
+                  <AdminArtworksDeleteModal artWork={art} />
                 </Table.Cell>
               </Table.Row>
             ))}
