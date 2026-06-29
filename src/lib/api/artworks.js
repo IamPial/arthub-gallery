@@ -8,6 +8,7 @@ export const getAllArtworks = async (obj = {}) => {
   const searchUrl = new URL(`${baseURl}/api/all-artworks`);
 
   if (obj.limit) searchUrl.searchParams.set("limit", obj.limit);
+  if (obj.page) searchUrl.searchParams.set("page", obj.page);
 
   if (search) searchUrl.searchParams.set("search", search);
   if (minPrice) searchUrl.searchParams.set("minPrice", minPrice);
@@ -16,7 +17,7 @@ export const getAllArtworks = async (obj = {}) => {
 
   try {
     const res = await fetch(searchUrl.toString(), { cache: "no-store" });
-    if (!res.ok) return [];
+    if (!res.ok) return { data: [], total: 0, totalPages: 0 };
     const data = await res.json();
     return data;
   } catch (error) {
