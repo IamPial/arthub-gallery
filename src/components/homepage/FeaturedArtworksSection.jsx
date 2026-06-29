@@ -5,8 +5,9 @@ import { getAllArtworks } from "@/lib/api/artworks";
 
 import FeaturedAnimation from "./FeaturedAnimation";
 
+export const dynamic = "force-dynamic";
 const FeaturedArtworksSection = async () => {
-  const artworks = await getAllArtworks({limit:8});
+  const artworks = await getAllArtworks({ limit: 8 });
 
   //prevent error with null
   if (!artworks || artworks.length === 0) return null;
