@@ -1,10 +1,6 @@
+### ArtHub – Online Art Marketplace
+
 A modern, full-stack MERN marketplace where artists showcase their artwork and collectors purchase authentic creations securely through Stripe.
-
-[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](YOUR_LIVE_URL)
-[![Client](https://img.shields.io/badge/Client-GitHub-blue?style=for-the-badge)](YOUR_CLIENT_REPO)
-[![Server](https://img.shields.io/badge/Server-GitHub-black?style=for-the-badge)](YOUR_SERVER_REPO)
-
-</div>
 
 ---
 
@@ -20,23 +16,7 @@ This project demonstrates production-level full-stack development practices incl
 
 ### 🌐 Live Site
 
-https://your-live-site.vercel.app
-
-### 💻 Client Repository
-
-https://github.com/yourusername/arthub-client
-
-### ⚙️ Server Repository
-
-https://github.com/yourusername/arthub-server
-
----
-
-# 👨 Admin Credentials
-
-| Email            | Password  |
-| ---------------- | --------- |
-| admin@arthub.com | Admin@123 |
+https://arthub-gallery.vercel.app
 
 ---
 
