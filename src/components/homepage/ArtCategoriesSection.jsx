@@ -5,7 +5,8 @@ import { FiGrid } from "react-icons/fi";
 import CategoriesAnimation from "./CategoriesAnimation";
 
 const ArtCategoriesSection = async () => {
-  const categories = await getAllArtworks({});
+  const result = await getAllArtworks({});
+  const categories = result?.data
   
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-12 flex flex-col gap-8 overflow-hidden">
