@@ -10,15 +10,6 @@ import {
   YAxis,
 } from "recharts";
 
-const dummySalesChart = [
-  { name: "Jan", sales: 4000 },
-  { name: "Feb", sales: 3000 },
-  { name: "Mar", sales: 5000 },
-  { name: "Apr", sales: 8500 },
-  { name: "May", sales: 7000 },
-  { name: "Jun", sales: 11000 },
-];
-
 const SalesChartsCard = ({ salesData }) => {
   return (
     <Card className="lg:col-span-2 bg-[#1a163a]/40 border border-white/5 rounded-2xl p-4 shadow-none backdrop-blur-md">
