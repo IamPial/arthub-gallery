@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { PRICING_ID, stripe } from "@/lib/stripe";
 import { getUserSession } from "@/lib/core/session";
+import { checkPlans } from "@/lib/api/plans";
 
 export async function POST(request) {
   try {
@@ -16,6 +17,7 @@ export async function POST(request) {
     const artWorksImg = formData.get("artWorksImg");
     const artistName = formData.get("artistName");
     const description = formData.get("description");
+    const category = formData.get("category");
 
     const userSession = await getUserSession();
     const user = userSession?.user;
@@ -47,6 +49,7 @@ export async function POST(request) {
         artistId,
         artWorksImg,
         description,
+        category,
       },
       mode: "payment",
       success_url: `${origin}/pricing/payment-success?session_id={CHECKOUT_SESSION_ID}`,
