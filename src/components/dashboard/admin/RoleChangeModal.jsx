@@ -1,7 +1,7 @@
 import { AlertDialog, Button } from "@heroui/react";
 
 const RoleChangeModal = ({ user, targetRole, label, variantColor }) => {
-  // টার্গেট রোলের ওপর ভিত্তি করে বাটনের ডাইনামিক হোভার ও টেক্সট কালার
+
   const colorStyles = {
     buyer: "text-blue-400 hover:border-blue-500/40",
     artist: "text-purple-400 hover:border-purple-500/40",
@@ -12,7 +12,6 @@ const RoleChangeModal = ({ user, targetRole, label, variantColor }) => {
 
   return (
     <AlertDialog>
-      {/* Trigger Button */}
       <Button
         size="sm"
         className={`bg-[#131129] border border-white/5 rounded-lg text-xs font-medium transition-all duration-200 px-3 py-1 ${currentStyle}`}
@@ -20,7 +19,6 @@ const RoleChangeModal = ({ user, targetRole, label, variantColor }) => {
         {label}
       </Button>
 
-      {/* Backdrop & Dialog - একদম স্ক্রিনের মাঝখানে (Centered) থাকবে */}
       <AlertDialog.Backdrop className="backdrop-blur-sm bg-black/60 fixed inset-0 z-50 overflow-y-auto">
         <AlertDialog.Container className="min-h-full w-full flex items-center justify-center p-4 text-center">
           <AlertDialog.Dialog className="bg-[#13102e] border border-white/10 rounded-2xl p-6 max-w-md w-full shadow-2xl relative text-left align-middle inline-block">
