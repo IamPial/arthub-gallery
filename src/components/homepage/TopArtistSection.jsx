@@ -98,7 +98,7 @@ export default function TopArtistSection() {
                 {artist.sales}
               </p>
               <Link
-                href={`/artist-profiles/${artist._id}`}
+                href="#"
                 className="text-xs text-[#a78bfa] font-bold hover:underline mt-1.5 self-start transition-all"
               >
                 View Portfolio →
