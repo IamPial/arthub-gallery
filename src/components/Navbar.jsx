@@ -67,7 +67,13 @@ const Navbar = () => {
             </button>
 
             <Link href="/" className="flex items-center gap-3">
-              <Image src={Logo} alt="ArtHub" width={40} height={40} />
+              <Image
+                src={Logo}
+                alt="ArtHub"
+                width={40}
+                height={40}
+                className="hidden sm:flex"
+              />
               <p className="font-extrabold text-[#6f4ff2] text-2xl tracking-tight">
                 Art<span className="text-white">Hub</span>
               </p>
