@@ -1,4 +1,3 @@
-
 import { getAllArtworks } from "@/lib/api/artworks";
 
 import { FiGrid } from "react-icons/fi";
@@ -6,8 +5,8 @@ import CategoriesAnimation from "./CategoriesAnimation";
 
 const ArtCategoriesSection = async () => {
   const result = await getAllArtworks({});
-  const categories = result?.data
-  
+  const categories = result?.data;
+
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-12 flex flex-col gap-8 overflow-hidden">
       <div className="flex flex-col gap-1 border-b border-white/5 pb-4">
