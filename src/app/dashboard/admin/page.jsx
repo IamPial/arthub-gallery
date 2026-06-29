@@ -62,7 +62,7 @@ const AdminDashBoardPage = async () => {
     },
     {
       title: "Total Revenue",
-      value: `$${Stats.totalRevenue}`,
+      value: `$${Stats.totalRevenue.toFixed(2)}`,
       desc: "Gross platform earnings",
       icon: <FiDollarSign size={22} />,
       color: "text-emerald-400",
@@ -108,7 +108,7 @@ const AdminDashBoardPage = async () => {
         {/* Sales Performance Card */}
         <SalesChartsCard salesData={allData} />
         {/* Categories Card */}
-        <CategoryChartsCard />
+        <CategoryChartsCard categoryData={soldArtworks} />
       </div>
     </div>
   );
