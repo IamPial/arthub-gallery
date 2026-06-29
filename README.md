@@ -1,36 +1,392 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A modern, full-stack MERN marketplace where artists showcase their artwork and collectors purchase authentic creations securely through Stripe.
 
-## Getting Started
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](YOUR_LIVE_URL)
+[![Client](https://img.shields.io/badge/Client-GitHub-blue?style=for-the-badge)](YOUR_CLIENT_REPO)
+[![Server](https://img.shields.io/badge/Server-GitHub-black?style=for-the-badge)](YOUR_SERVER_REPO)
 
-First, run the development server:
+</div>
+
+---
+
+# Project Overview
+
+ArtHub is a role-based online art marketplace built with the MERN stack. It enables artists to publish and manage artwork while allowing buyers to discover, purchase, and review original art pieces. The platform includes secure authentication, Stripe payment integration, subscription plans, analytics dashboards, and role-based access control.
+
+This project demonstrates production-level full-stack development practices including authentication, authorization, CRUD operations, payment processing, protected routes, dashboards, responsive UI, and REST API architecture.
+
+---
+
+# Live Website
+
+### 🌐 Live Site
+
+https://your-live-site.vercel.app
+
+### 💻 Client Repository
+
+https://github.com/yourusername/arthub-client
+
+### ⚙️ Server Repository
+
+https://github.com/yourusername/arthub-server
+
+---
+
+# 👨 Admin Credentials
+
+| Email            | Password  |
+| ---------------- | --------- |
+| admin@arthub.com | Admin@123 |
+
+---
+
+# Key Features
+
+## Authentication
+
+- Email & Password Authentication
+- Google Authentication
+- JWT Authorization
+- Protected Routes
+- Role-Based Access Control
+- Persistent Login
+- Secure Logout
+
+---
+
+## Artwork Marketplace
+
+- Browse All Artworks
+- Featured Artworks
+- Artwork Categories
+- Search by Title
+- Search by Artist
+- Filter by Category
+- Filter by Price Range
+- Sorting
+- Pagination
+- Responsive Grid Layout
+
+---
+
+## Artwork Details
+
+- High Resolution Artwork Image
+- Complete Artwork Information
+- Artist Profile Link
+- Purchase Button
+- Comment System
+- Edit/Delete Artwork (Artist Only)
+- Sold Badge
+- Automatic Unpublish
+
+---
+
+## User Dashboard
+
+- Purchase History
+- Bought Artworks Gallery
+- Profile Management
+- Subscription Overview
+- Upgrade Subscription
+- Comment Management
+
+---
+
+## Artist Dashboard
+
+- Add Artwork
+- Edit Artwork
+- Delete Artwork
+- Manage Own Artworks
+- Sales History
+- Profile Management
+
+---
+
+## Admin Dashboard
+
+- Manage Users
+- Change User Roles
+- Manage All Artworks
+- View Transactions
+- Analytics Dashboard
+- Revenue Overview
+- Sales Chart
+- Category Pie Chart
+
+---
+
+## Stripe Payment
+
+- Secure Checkout
+- Artwork Purchase
+- Subscription Payment
+- Purchase History
+- Transaction Records
+
+---
+
+## Extra Features
+
+- Loading Skeleton
+- Global Loading Spinner
+- Error Boundary
+- Custom 404 Page
+- Responsive Design
+- Toast Notifications
+- Image Upload via imgBB
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- Next.js 16
+- JavaScript ES6+
+- Tailwind CSS
+- HeroUI
+- Framer Motion
+- React Icons
+- Sonner
+
+---
+
+## Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- JWT
+- Stripe API
+- Better Auth
+- CORS
+- Dotenv
+
+---
+
+## Authentication
+
+- Better Auth
+- Google OAuth
+- JWT
+
+---
+
+## Database
+
+- MongoDB Atlas
+
+---
+
+## Deployment
+
+- Vercel (Frontend & Backend)
+
+---
+
+---
+
+# 📸 Project Screenshots
+
+> Replace these images after deployment.
+
+| Home       | Browse     |
+| ---------- | ---------- |
+| Screenshot | Screenshot |
+
+| Dashboard  | Artwork Details |
+| ---------- | --------------- |
+| Screenshot | Screenshot      |
+
+---
+
+# ⚙️ Installation Guide
+
+## Clone Repository
+
+```bash
+git clone https://github.com/yourusername/arthub-client.git
+```
+
+```bash
+git clone https://github.com/yourusername/arthub-server.git
+```
+
+---
+
+## Client Setup
+
+```bash
+cd arthub-client
+```
+
+```bash
+npm install
+```
+
+Create a `.env.local`
+
+```env
+NEXT_PUBLIC_API_URL=
+
+NEXT_PUBLIC_FIREBASE_API_KEY=
+
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+
+NEXT_PUBLIC_FIREBASE_APP_ID=
+
+NEXT_PUBLIC_IMGBB_KEY=
+
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+```
+
+Run
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Server Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+cd arthub-server
+```
 
-## Learn More
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Create `.env`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+PORT=
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+MONGODB_URI=
 
-## Deploy on Vercel
+BETTER_AUTH_SECRET=
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+CLIENT_URL=
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+
+Run
+
+```bash
+npm run dev
+```
+
+---
+
+# Environment Variables
+
+The project uses environment variables to secure:
+
+- MongoDB Credentials
+- JWT Secret
+- Better Auth Credentials
+- Stripe Secret Key
+- Stripe Publishable Key
+- imgBB API Key
+
+No secret keys are committed to GitHub.
+
+---
+
+# Database Collections
+
+```
+users
+
+artworks
+
+transactions
+
+subscriptions
+
+
+```
+
+---
+
+# User Roles
+
+### 👤 Buyer
+
+- Browse Artwork
+- Purchase Artwork
+- Manage Profile
+- Upgrade Subscription
+
+---
+
+### Artist
+
+- Upload Artwork
+- Edit Artwork
+- Delete Artwork
+- View Sales History
+
+---
+
+### Admin
+
+- Manage Users
+- Manage Artworks
+- View Transactions
+- Analytics Dashboard
+
+---
+
+# 📦 NPM Packages
+
+### Frontend
+
+```
+next
+
+react
+
+javascript ES6+
+
+tailwindcss
+
+hero-ui
+
+framer-motion
+
+react-icons
+
+sonner
+
+better auth
+```
+
+### Backend
+
+```
+express
+
+mongodb
+
+jsonwebtoken
+
+stripe
+
+cors
+
+dotenv
+
+better auth
+
+cookie-parser
+```
