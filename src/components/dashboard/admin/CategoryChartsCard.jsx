@@ -11,14 +11,26 @@ import { Card } from "@heroui/react";
 
 const COLORS = ["#6f4ff2", "#06b6d4", "#f59e0b", "#ec4899"];
 
-const dummyCategoryPie = [
-  { name: "Cyberpunk", value: 420 },
-  { name: "Abstract", value: 340 },
-  { name: "Minimalist", value: 210 },
-  { name: "Oil Painting", value: 120 },
-];
 
-const CategoryChartsCard = () => {
+
+const CategoryChartsCard = ({ categoryData }) => {
+  
+  //create new array of obj with name & value property
+  const pieData = Object.values(
+    categoryData.reduce((acc, item) => {
+      const category = item.category;
+
+      if (!acc[category]) {
+        acc[category] = {
+          name: category,
+          value: 0,
+        };
+      }
+      acc[category].value++;
+      return acc;
+    }, {}),
+  );
+
   return (
     <Card className="bg-[#1a163a]/40 border border-white/5 rounded-2xl p-4 shadow-none backdrop-blur-md">
       <Card.Header className="bg-transparent pb-4">
@@ -34,13 +46,14 @@ const CategoryChartsCard = () => {
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
-                data={dummyCategoryPie}
+                data={pieData}
                 cx="50%"
                 cy="50%"
                 innerRadius={60}
                 outerRadius={85}
                 paddingAngle={5}
                 dataKey="value"
+                nameKey="name"
                 shape={(props) => {
                   const { index, ...rest } = props;
                   return (
