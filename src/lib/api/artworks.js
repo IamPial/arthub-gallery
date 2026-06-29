@@ -17,6 +17,7 @@ export const getAllArtworks = async (obj = {}) => {
   const res = await fetch(searchUrl.toString(), {
     cache: "no-store",
   });
+
   const data = await res.json();
   return data;
 };
