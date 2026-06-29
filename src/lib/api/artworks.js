@@ -3,7 +3,7 @@ import { getTokenServer } from "../getToken";
 const baseURl = process.env.NEXT_PUBLIC_SERVER_URL;
 
 //get all artworks
-export const getAllArtworks = async (obj={}) => {
+export const getAllArtworks = async (obj = {}) => {
   const { search, minPrice, maxPrice, category } = obj;
   const searchUrl = new URL(`${baseURl}/api/all-artworks`);
 
@@ -14,7 +14,9 @@ export const getAllArtworks = async (obj={}) => {
   if (maxPrice) searchUrl.searchParams.set("maxPrice", maxPrice);
   if (category) searchUrl.searchParams.set("category", category);
 
-  const res = await fetch(searchUrl.toString());
+  const res = await fetch(searchUrl.toString(), {
+    cache: "no-store",
+  });
   const data = await res.json();
   return data;
 };
