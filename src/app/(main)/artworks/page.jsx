@@ -14,6 +14,15 @@ const BrowseArtworksPage = async ({ searchParams }) => {
 
   return (
     <div className="flex flex-col gap-6 w-full p-4">
+      <div className="container mx-auto ">
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+          {" "}
+          Artworks Exhibition
+        </h1>
+        <p className="text-sm text-slate-400">
+          Explore and discover premium artworks from top artists
+        </p>
+      </div>
       <SearchArtworks />
 
       {artworks.length === 0 ? (
