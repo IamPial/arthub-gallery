@@ -1,4 +1,4 @@
-# ArtHub – Online Art Marketplace
+# 🎨 ArtHub – Online Art Marketplace
 
 A modern, full-stack MERN marketplace where artists showcase their artwork and collectors purchase authentic creations securely through Stripe.
 
