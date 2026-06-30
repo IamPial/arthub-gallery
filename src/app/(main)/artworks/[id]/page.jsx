@@ -12,6 +12,7 @@ import DeleteArtworksModal from "@/components/dashboard/artist/DeleteArtworksMod
 import EditArtworksModal from "@/components/dashboard/artist/EditArtworksModal";
 import { getArtworksDetails } from "@/lib/api/artworks";
 import { getUserSession } from "@/lib/core/session";
+import CommentSection from "@/components/CommentSection";
 
 export const metadata = {
   title: "ArtHub- Browse Artworks Details",
@@ -180,6 +181,7 @@ const ArtworkDetailsPage = async ({ params }) => {
           </div>
         </div>
       </div>
+      <CommentSection />
     </div>
   );
 };
