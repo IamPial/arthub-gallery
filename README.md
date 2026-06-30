@@ -20,6 +20,20 @@ https://arthub-gallery.vercel.app
 
 ---
 
+## Project Screenshots
+
+<p align="center">
+    <img src="./src/assets/home.png" width="48%">
+    <img src="./src/assets/browse.png" width="48%">
+</p>
+
+<p align="center">
+    <img src="./src/assets/dashboard.png" width="48%">
+    <img src="./src/assets/details.png" width="48%">
+</p>
+
+---
+
 # Key Features
 
 ## Authentication
@@ -163,22 +177,6 @@ https://arthub-gallery.vercel.app
 ## Deployment
 
 - Vercel (Frontend & Backend)
-
----
-
----
-
-# 📸 Project Screenshots
-
-> Replace these images after deployment.
-
-| Home       | Browse     |
-| ---------- | ---------- |
-| Screenshot | Screenshot |
-
-| Dashboard  | Artwork Details |
-| ---------- | --------------- |
-| Screenshot | Screenshot      |
 
 ---
 
