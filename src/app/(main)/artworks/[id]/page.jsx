@@ -13,16 +13,11 @@ import EditArtworksModal from "@/components/dashboard/artist/EditArtworksModal";
 import { getArtworksDetails } from "@/lib/api/artworks";
 import { getUserSession } from "@/lib/core/session";
 
-
-
 export const metadata = {
   title: "ArtHub- Browse Artworks Details",
   description:
     "ArtHub is a digital platform that connects art lovers, collectors, and buyers with talented artists.",
 };
-
-
-
 
 const ArtworkDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -33,7 +28,7 @@ const ArtworkDetailsPage = async ({ params }) => {
   const role = user?.role === "buyer";
 
   const isLoggedIn = !!user;
-  const isOwner = isLoggedIn && user.id === art.userId;
+  const isOwner = isLoggedIn && user.id === art?.userId;
   const formattedDate = art.createdAt
     ? new Date(art.createdAt).toLocaleDateString("en-US", {
         year: "numeric",
@@ -60,15 +55,15 @@ const ArtworkDetailsPage = async ({ params }) => {
         <div className="md:col-span-7 flex flex-col gap-4">
           <div className="relative aspect-square w-full rounded-3xl overflow-hidden bg-[#131129] border border-white/5 shadow-2xl shadow-[#6f4ff2]/5">
             <Image
-              src={art.image}
-              alt={art.title}
+              src={art?.image}
+              alt={art?.title}
               fill
               priority
               className="object-cover"
             />
             <div className="absolute top-4 left-4 backdrop-blur-md bg-[#131129]/70 border border-white/10 px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-xs font-semibold text-[#a78bfa] uppercase tracking-wider">
               <FiTag size={12} />
-              {art.category}
+              {art?.category}
             </div>
           </div>
         </div>
@@ -76,7 +71,7 @@ const ArtworkDetailsPage = async ({ params }) => {
         <div className="md:col-span-5 flex flex-col gap-5 justify-start">
           <div className="flex flex-col gap-1.5">
             <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-wide leading-tight">
-              {art.title}
+              {art?.title}
             </h1>
             <div className="flex items-center gap-2 text-sm text-slate-400">
               <FiUser className="text-[#6f4ff2]" size={14} />
@@ -85,7 +80,7 @@ const ArtworkDetailsPage = async ({ params }) => {
                 href={`/artist-profiles/${art?.userId}`}
                 className="text-[#a78bfa] font-semibold hover:underline"
               >
-                {art.userName}
+                {art?.userName}
               </Link>
             </div>
           </div>
