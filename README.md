@@ -57,7 +57,6 @@ https://arthub-gallery.vercel.app
 - Search by Artist
 - Filter by Category
 - Filter by Price Range
-- Sorting
 - Pagination
 - Responsive Grid Layout
 
@@ -69,10 +68,7 @@ https://arthub-gallery.vercel.app
 - Complete Artwork Information
 - Artist Profile Link
 - Purchase Button
-- Comment System
 - Edit/Delete Artwork (Artist Only)
-- Sold Badge
-- Automatic Unpublish
 
 ---
 
@@ -83,7 +79,6 @@ https://arthub-gallery.vercel.app
 - Profile Management
 - Subscription Overview
 - Upgrade Subscription
-- Comment Management
 
 ---
 
@@ -133,9 +128,9 @@ https://arthub-gallery.vercel.app
 
 ---
 
-# 🛠 Tech Stack
+## Tech Stack
 
-## Frontend
+### Frontend
 
 - Next.js 16
 - JavaScript ES6+
@@ -147,7 +142,7 @@ https://arthub-gallery.vercel.app
 
 ---
 
-## Backend
+### Backend
 
 - Node.js
 - Express.js
@@ -160,7 +155,7 @@ https://arthub-gallery.vercel.app
 
 ---
 
-## Authentication
+### Authentication
 
 - Better Auth
 - Google OAuth
@@ -168,19 +163,19 @@ https://arthub-gallery.vercel.app
 
 ---
 
-## Database
+### Database
 
 - MongoDB Atlas
 
 ---
 
-## Deployment
+### Deployment
 
 - Vercel (Frontend & Backend)
 
 ---
 
-# ⚙️ Installation Guide
+# Installation Guide
 
 ## Clone Repository
 
@@ -209,52 +204,11 @@ Create a `.env.local`
 ```env
 NEXT_PUBLIC_API_URL=
 
-NEXT_PUBLIC_FIREBASE_API_KEY=
-
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
-
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=
-
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
-
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
-
-NEXT_PUBLIC_FIREBASE_APP_ID=
+NEXT_PUBLIC_BETTER_AUTH_API_KEY=
 
 NEXT_PUBLIC_IMGBB_KEY=
 
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-```
-
-Run
-
-```bash
-npm run dev
-```
-
----
-
-## Server Setup
-
-```bash
-cd arthub-server
-```
-
-```bash
-npm install
-```
-
-Create `.env`
-
-```env
-PORT=
-
-MONGODB_URI=
-
-BETTER_AUTH_SECRET=
-
-CLIENT_URL=
-
 ```
 
 Run
@@ -325,27 +279,19 @@ subscriptions
 
 ---
 
-# 📦 NPM Packages
+# NPM Packages
 
 ### Frontend
 
 ```
 next
-
 react
-
 javascript ES6+
-
 tailwindcss
-
 hero-ui
-
 framer-motion
-
 react-icons
-
 sonner
-
 better auth
 ```
 
@@ -353,18 +299,11 @@ better auth
 
 ```
 express
-
 mongodb
-
 jsonwebtoken
-
 stripe
-
 cors
-
 dotenv
-
 better auth
-
 cookie-parser
 ```
